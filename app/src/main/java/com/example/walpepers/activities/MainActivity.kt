@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                 mainScreenViewModel.selectedId)
         val adapterWalpeper=AdapterWalpeper()
         binding.listImage.adapter=adapterWalpeper
-        
+
     }
 
 }

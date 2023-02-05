@@ -26,7 +26,7 @@ class AdapterWalpeper():RecyclerView.Adapter<AdapterWalpeper.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     Glide.with(holder.itemView).load(list[position].largeImageURL)
         .into(holder.walpeperLayoutBinding.imageWalpeper)
-    holder.walpeperLayoutBinding.btFull.setOnClickListener {
+    holder.walpeperLayoutBinding.imageWalpeper.setOnClickListener {
       //  var intent= Intent(holder.walpeperLayoutBinding.root,WalpeperFullActivity::class.java)
     }
 
