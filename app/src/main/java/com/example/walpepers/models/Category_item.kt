@@ -1,3 +1,5 @@
-package com.example.walpepers
+package com.example.walpepers.models
 
-data class Category_item()
+data class Category_item(val resourseId:Int,val name:String){
+
+}

@@ -1,6 +1,6 @@
-package com.example.walpepers.Data
+package com.example.walpepers.data
 
-data class Hit(
+data class Wallpaper(
     val collections: Int,
     val comments: Int,
     val downloads: Int,
