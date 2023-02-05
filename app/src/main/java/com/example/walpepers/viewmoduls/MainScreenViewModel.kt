@@ -20,7 +20,7 @@ class MainScreenViewModel(private val repository: WallpaperServiceRepository)
         )
 
         val categoryLiveData = MutableLiveData(category)
-
+    val selectedId: MutableLiveData<Int> = MutableLiveData(0)
 
 
 
