@@ -9,6 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bt_install"
+        android:scaleType="centerCrop"
+        android:id="@+id/full_img"
         />
     <Button
         android:layout_width="match_parent"

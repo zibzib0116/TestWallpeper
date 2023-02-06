@@ -13,6 +13,13 @@ class AdapterCategory(private val list: LiveData<List<CategoryItem>>, val select
     inner class ViewHolder(val categoryLayoutBinding: ItemCategoryLayoutBinding) :
         RecyclerView.ViewHolder(categoryLayoutBinding.root) {
         var id: Int = 1
+        init {
+            categoryLayoutBinding.imageCategory.setOnClickListener{
+                if (selectedPosition.value!=id){
+                    selectedPosition.value=id
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

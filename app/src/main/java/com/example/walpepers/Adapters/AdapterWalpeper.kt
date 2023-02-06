@@ -1,22 +1,28 @@
 package com.example.walpepers.Adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.walpepers.activities.WalpeperFullActivity
+import coil.load
 import com.example.walpepers.data.Wallpaper
 import com.example.walpepers.databinding.ItemWalpeperLayoutBinding
 
-class AdapterWalpeper():RecyclerView.Adapter<AdapterWalpeper.ViewHolder>() {
-    private val list=ArrayList<Wallpaper>()
-    inner class ViewHolder(val walpeperLayoutBinding: ItemWalpeperLayoutBinding):RecyclerView.ViewHolder(walpeperLayoutBinding.root) {
+class AdapterWalpeper(var imageClick: (image:Wallpaper) -> Unit):RecyclerView.Adapter<AdapterWalpeper.ViewHolder>() {
+    private var list = ArrayList<Wallpaper>()
+
+    fun updateData(list: ArrayList<Wallpaper>) {
+        this.list.clear()
+        this.list = list;
+        notifyDataSetChanged()
+    }
+
+    inner class ViewHolder(val walpeperLayoutBinding: ItemWalpeperLayoutBinding) :
+        RecyclerView.ViewHolder(walpeperLayoutBinding.root) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    return ViewHolder(ItemWalpeperLayoutBinding.inflate(LayoutInflater.from(parent.context)))
+        return ViewHolder(ItemWalpeperLayoutBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
     override fun getItemCount(): Int {
@@ -24,13 +30,13 @@ class AdapterWalpeper():RecyclerView.Adapter<AdapterWalpeper.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    Glide.with(holder.itemView).load(list[position].largeImageURL)
-        .into(holder.walpeperLayoutBinding.imageWalpeper)
-    holder.walpeperLayoutBinding.imageWalpeper.setOnClickListener {
-      //  var intent= Intent(holder.walpeperLayoutBinding.root,WalpeperFullActivity::class.java)
+
+        holder.walpeperLayoutBinding.imageWalpeper.load(list[position].webformatURL)
+        holder.walpeperLayoutBinding.nameWalpeper.text = list[position].tags
+        /*Glide.with(holder.itemView).load(R.drawable.animals)
+            .into(holder.walpeperLayoutBinding.imageWalpeper)*/
+        holder.walpeperLayoutBinding.imageWalpeper.setOnClickListener {
+            imageClick(list[position])
+        }
     }
-
-    }
-
-
 }
