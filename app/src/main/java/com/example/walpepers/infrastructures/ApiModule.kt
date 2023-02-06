@@ -11,8 +11,8 @@ var networkModule= module {
     factory { providerWallpaperService(get())  }
     factoryOf(::WallpaperServiceRepository)
 }
-private const val apiKey="33106230-b104905cd7ff74ed17e2229af"
-private  const val baseURL= "https://pixabay.com/api?key=$apiKey"
+
+private  const val baseURL= "https://pixabay.com/"
 fun providerRetrofit():Retrofit=Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .baseUrl(baseURL).build()

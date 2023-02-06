@@ -2,12 +2,14 @@ package com.example.walpepers.infrastructures
 
 import com.example.walpepers.data.WallpaperResponce
 import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface WallpeperService {
 
-    @GET("&category={category}&page={page}&orientation=vertical")
+    @GET("api")
     suspend fun getWallpeper(
-        @Path(value="category" )category:String ,
-        @Path(value = "page")page:Int=1):WallpaperResponce
+        @Query(value="key" )key:String ,
+        @Query(value="category" )category:String ,
+        @Query(value = "page")page:Int=1,
+        @Query(value = "orientation")orientation:String = "vertical"):WallpaperResponce
 }

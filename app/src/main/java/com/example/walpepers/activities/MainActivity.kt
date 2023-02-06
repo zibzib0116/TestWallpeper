@@ -2,6 +2,7 @@ package com.example.walpepers.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.walpepers.Adapters.AdapterCategory
 import com.example.walpepers.Adapters.AdapterWalpeper
 import com.example.walpepers.R
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
             AdapterCategory(
                 mainScreenViewModel.categoryLiveData,
                 mainScreenViewModel.selectedId)
+        binding.listCategory.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
         val adapterWalpeper=AdapterWalpeper()
         binding.listImage.adapter=adapterWalpeper
     }
