@@ -10,7 +10,7 @@ import com.example.walpepers.data.Wallpaper
 import com.example.walpepers.databinding.ItemWalpeperLayoutBinding
 
 class AdapterWalpeper():RecyclerView.Adapter<AdapterWalpeper.ViewHolder>() {
-    val list=ArrayList<Wallpaper>()
+    private val list=ArrayList<Wallpaper>()
     inner class ViewHolder(val walpeperLayoutBinding: ItemWalpeperLayoutBinding):RecyclerView.ViewHolder(walpeperLayoutBinding.root) {
 
     }
