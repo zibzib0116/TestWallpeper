@@ -6,8 +6,7 @@ import com.example.walpepers.R
 import com.example.walpepers.infrastructures.WallpaperServiceRepository
 import com.example.walpepers.models.CategoryItem
 
-class MainScreenViewModel(private val repository: WallpaperServiceRepository)
-    :ViewModel() {
+class MainScreenViewModel(private val repository: WallpaperServiceRepository) :ViewModel() {
         private val category: List<CategoryItem> = listOf(
                 CategoryItem(R.drawable.animals,"animals"),
                 CategoryItem(R.drawable.buildings,"buildings"),
